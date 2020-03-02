@@ -3,6 +3,7 @@ class CalculadoraPontuacaoBoliche():
     def __init__(self,nome):
         self.nome=nome
         self.pontuacao=list()
+        self.resultado=0
 
     def jogar(self,jogada):
         
@@ -84,20 +85,16 @@ class CalculadoraPontuacaoBoliche():
         pontos=self.pontuacao
         print('Lista de pinos derrubados:',pontos)
         strikeBonus=0
-        resultado=0
+        result=0
         for i in pontos:
-            resultado= resultado+i
+            result= result+i
 
-        for i in range(len(pontos)-2):
+        for i in range(len(pontos)-3):
             if pontos[i] == 10:
                 strikeBonus= strikeBonus + pontos[i+1]+pontos[i+2]
-                
-                
-        print('Soma bônus do strike:',strikeBonus)
         
-        
-        #resultado=bonus+strikeBonus
-        print(self.nome,'fez:',resultado+bonus+strikeBonus,' pontos')
+        self.resultado=result+bonus+strikeBonus
+        print(self.nome,'fez:',self.resultado,' pontos')
         
 
 
