@@ -11,6 +11,7 @@ class CalculadoraPontuacaoBoliche():
         contaSpare=0
         bonus=0
         anterior=0
+        bonusS=0
         for i in range(10):
 
             
@@ -50,6 +51,10 @@ class CalculadoraPontuacaoBoliche():
                             contChances+=1
                             self.pontuacao.append(jogada)
                             anterior=jogada
+                            if somaJogada == 10 and contChances==2 and contRodada==10:
+                                bonusS= int(input("Jogada bonus!!! Digite o numero de pinos derrubados:"))
+                                jogada=bonusS
+                                self.pontuacao.append(jogada)
                             
                         else:
                             if contRodada <= 9:
@@ -75,7 +80,7 @@ class CalculadoraPontuacaoBoliche():
             print('Spares:',contaSpare)
                     
             
-        print('Bônus do Spare:',bonus)
+        print('Bônus do Spare:',bonus+bonusS)
         pontos=self.pontuacao
         print('Lista de pinos derrubados:',pontos)
         strikeBonus=0
